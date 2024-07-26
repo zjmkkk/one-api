@@ -46,10 +46,7 @@ func SetWebRouter(router *gin.Engine, buildFS embed.FS) {
 		c.Header("Cache-Control", "no-cache")
 		fmt.Println("Serving index.html for:", c.Request.RequestURI)
 		
-		// 临时测试：返回一个简单的HTML字符串
-		c.Data(http.StatusOK, "text/html; charset=utf-8", []byte("<html><body><h1>Test Page</h1></body></html>"))
-		
-		// 原来的代码，暂时注释掉
-		// c.Data(http.StatusOK, "text/html; charset=utf-8", indexPageData)
+		// 恢复原来的代码，使用实际的 index.html 内容
+		c.Data(http.StatusOK, "text/html; charset=utf-8", indexPageData)
 	})
 }
